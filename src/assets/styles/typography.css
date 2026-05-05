@@ -1,0 +1,25 @@
+/* h1 {} */
+h2 {
+    font-size: 1.75rem;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* .text-error { color: #dc3545; }
+.text-success { color: #28a745; } */

@@ -1,0 +1,41 @@
+.input-wrapper {
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem 1.125rem;
+    color: var(--text-form);
+    border-radius: var(--radius);
+    outline: 2px solid rgba(255, 255, 255, 0);
+    transition: all 0.2s ease;
+    background: #F4F4F4;
+}
+
+.input::placeholder {
+    color: var(--text-secondary);
+}
+
+.input:focus {
+    outline: 2px solid var(--branded);
+    outline-offset: 2px;
+}
+
+.input-field-container {
+    position: relative;
+}
+
+.input-icon {
+    height: calc(100% / 2);
+    position: absolute;
+    top: calc(100% / 4);
+    left: 1rem;
+}
+
+.input--error {
+
+}
+
+.error-message {
+
+}

@@ -1,0 +1,22 @@
+:root {
+    --font-text: "SF UI Display Regular", sans-serif;
+    
+    --branded: #e55a63;
+    --white: #ffffff;
+    --gray: #e2e2e4;
+    --red: #bb464e;
+
+    --text-primary: #333333;
+    --text-secondary: rgba(51, 51, 51, 0.5);
+    --text-inverse: var(--white);
+    --text-accent: var(--branded);
+    --text-form: #7d7d7d;
+    --border: #e4e4e4;
+
+    --bg-base: #f5f5f7;
+    --bg-layer-1: var(--white);
+    --bg-layer-2: #fbfbfb;
+    --shadow: #0000001a;
+
+    --radius: 20px;
+}
