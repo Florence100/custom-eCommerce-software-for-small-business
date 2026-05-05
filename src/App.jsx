@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { LoginPage, RegisterPage } from './pages';
-import { AuthLayout } from './components/layouts';
+import { AuthLayout } from '@/components/layouts';
 
 export default function App () {
     return (

@@ -83,7 +83,7 @@ label {
 }
 
 .link:focus {
-    outline: 2px solid var(--branded);
+    outline: 2px solid var(--outline);
     outline-offset: 2px;
     border-radius: var(--radius);
 }
