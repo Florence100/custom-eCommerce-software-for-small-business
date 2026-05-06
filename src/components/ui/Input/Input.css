@@ -1,6 +1,6 @@
 .input-wrapper {
     width: 100%;
-    min-height: 65px;
+    position: relative;
 }
 
 .input {
@@ -34,6 +34,9 @@
 
 .error-message {
     font-size: 0.875rem;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
     color: var(--error);
+    position: absolute;
+    bottom: -1.25rem;
+    left: 1rem;
 }

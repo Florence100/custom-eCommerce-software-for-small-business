@@ -82,8 +82,8 @@ label {
     color: var(--text-accent);
 }
 
-.link:focus {
-    outline: 2px solid var(--outline);
+.link:focus:not(:hover):not(:active) {
+    outline: 2px solid var(--branded);
     outline-offset: 2px;
     border-radius: var(--radius);
 }

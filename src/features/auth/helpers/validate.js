@@ -4,7 +4,11 @@ const validateEmail = (email) => {
 }
 
 const validatePassword = (password) => {
-    return password.length >= 8;
+    return password.length > 7;
 }
 
-export { validateEmail, validatePassword };
+const validateName = (name) => {
+    return name.length > 0;
+}
+
+export { validateEmail, validatePassword, validateName };

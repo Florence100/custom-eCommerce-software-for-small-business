@@ -1,11 +1,10 @@
 import { Link } from 'react-router';
 import { LoginForm } from '@/features/auth';
 import { FormWrapper } from '@/components/ui';
-import './LoginPage.css';
 
 export function LoginPage () {
     return (
-        <div className='login'>
+        <div>
             <FormWrapper>
                 <LoginForm />
                 <Link className='link text-center' to='/register'>
