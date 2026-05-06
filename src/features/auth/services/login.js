@@ -4,8 +4,6 @@ export default async function login (formData) {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(user => user.email === formData.email);
 
-    console.log('user', user)
-
     if (!user) {
         return {
             success: false,

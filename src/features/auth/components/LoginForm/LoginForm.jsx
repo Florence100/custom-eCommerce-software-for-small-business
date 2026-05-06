@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router';
 import { Button } from '@/components/ui';
 import { Form } from '@/components/ui';
@@ -6,9 +7,11 @@ import { validateEmail, validatePassword } from '../../helpers/validate';
 import { EmailInput } from '../EmailInput/EmailInput';
 import { PasswordInput } from '../PasswordInput/PasswordInput';
 import login from '@/features/auth/services/login';
+import { login as loginDispatch } from '../../store/authSlice';
 
 export function LoginForm () {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [ isPending, setIsPending ] = useState(false);
 
@@ -38,6 +41,7 @@ export function LoginForm () {
             const result = await login({ email, password });
             
             if (result.success) {
+                dispatch(loginDispatch({ email: email }));
                 navigate('/');
             } else {
                 alert(result.message);
