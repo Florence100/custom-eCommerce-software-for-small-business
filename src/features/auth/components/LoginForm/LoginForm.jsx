@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Button } from '@/components/ui';
 import { Form } from '@/components/ui';
 import { validateEmail, validatePassword } from '../../helpers/validate';
@@ -7,27 +8,45 @@ import { PasswordInput } from '../PasswordInput/PasswordInput';
 import login from '@/features/auth/services/login';
 
 export function LoginForm () {
+    const navigate = useNavigate();
+
+    const [ isPending, setIsPending ] = useState(false);
+
     const [ email, setEmail ] = useState('');
-    const [ isEmailError, setIsEmailError ] = useState(false);
+    const [ isEmailError, setIsEmailError ] = useState(true);
 
     const [ password, setPassword ] = useState('');
-    const [ isPasswordError, setIsPasswordError ] = useState(false);
+    const [ isPasswordError, setIsPasswordError ] = useState(true);
+
+    const [ isSubmit, setIsSubmit ] = useState(false);
 
     function formValidate() {
-        setIsEmailError(!validateEmail(email));
-        setIsPasswordError(!validatePassword(password));
+        const isEmailValid = validateEmail(email);
+        const isPasswordValid = validatePassword(password);
+
+        return isEmailValid && isPasswordValid ? true : false;
     }
 
-    function onSubmitHandler(e) {
+    async function onSubmitHandler(e) {
         e.preventDefault();
-        formValidate();
+        setIsSubmit(true);
 
-        if ( isEmailError || isPasswordError) return;
+        if (!formValidate()) return;
+        setIsPending(true);
 
-        login({
-            email,
-            password
-        })
+        try {
+            const result = await login({ email, password });
+            
+            if (result.success) {
+                navigate('/');
+            } else {
+                alert(result.message);
+            }
+        } catch (e) {
+            console.error(e, )
+        } finally {
+            setIsPending(false);
+        }
     }
 
     return (
@@ -36,13 +55,15 @@ export function LoginForm () {
                 isError={isEmailError} 
                 setIsError={setIsEmailError}
                 setEmail={setEmail}
+                isSubmit={isSubmit}
             />
             <PasswordInput 
                 isError={isPasswordError}
                 setError={setIsPasswordError}
                 setPassword={setPassword}
+                isSubmit={isSubmit}
             />
-            <Button type='submit' style={{ width: '100%' }}>Log in</Button>
+            <Button type='submit' style={{ width: '100%' }} disabled={ isPending }>Log in</Button>
         </Form>
     )
 }
