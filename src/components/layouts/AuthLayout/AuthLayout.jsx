@@ -1,10 +1,10 @@
-import { Outlet } from "react-router";
+import { Outlet } from 'react-router';
+import './AuthLayout.css';
 
 export function AuthLayout () {
     return (
-        <>
-            <div>AuthLayout</div>
+        <div className='auth-page'>
             <Outlet />
-        </>
+        </div>
     )
 }

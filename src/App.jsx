@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
-import { LoginPage, RegisterPage } from './pages';
-import { AuthLayout } from './components/layouts';
+import { LoginPage, RegisterPage, ProductPage } from './pages';
+import { AuthLayout } from '@/components/layouts';
 
 export default function App () {
     return (
@@ -10,6 +10,7 @@ export default function App () {
                     <Route path="login" element={<LoginPage />} />
                     <Route path="register" element={<RegisterPage />} />
                 </Route>
+                <Route path="/" element={<ProductPage />} />
             </Routes>
         </BrowserRouter>
     );

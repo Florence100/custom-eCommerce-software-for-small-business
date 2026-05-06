@@ -1,0 +1,13 @@
+.ui-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ui-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}

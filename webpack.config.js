@@ -34,6 +34,9 @@ module.exports = {
   devtool: isDevelopment ? 'eval-cheap-module-source-map' : 'source-map',
 
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
     extensions: ['.js', '.jsx'],
   },
 
@@ -76,6 +79,10 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/,
         type: 'asset/resource',
       },
       {
