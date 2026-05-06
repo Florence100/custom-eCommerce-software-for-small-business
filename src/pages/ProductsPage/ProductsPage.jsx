@@ -1,9 +1,10 @@
+import { ProductList } from '@/features/products';
 import './ProductPage.css';
 
 export function ProductPage() {
     return (
         <>
-            Product Page
+            <ProductList />
         </>
     )
 }
