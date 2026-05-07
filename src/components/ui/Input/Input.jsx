@@ -1,7 +1,6 @@
 import './Input.css';
 
 export function Input ({ label, error, icon, ...props }) {
-    console.log(error)
     return (
         <div className="input-wrapper">
             { label && <label>{label}</label> }

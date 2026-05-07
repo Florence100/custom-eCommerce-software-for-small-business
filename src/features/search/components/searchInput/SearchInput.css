@@ -1,0 +1,11 @@
+.search-input {
+    background: #FFFFFF4D;
+    width: 15rem;
+    height: 2rem;
+    padding-left: 2.5rem;
+    color: var(--text-inverse);
+}
+
+.search-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+}

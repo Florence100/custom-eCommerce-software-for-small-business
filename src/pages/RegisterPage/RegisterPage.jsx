@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { RegisterForm } from '@/features/auth';
-import { FormWrapper } from '@/components/ui';
+import { FormWrapper } from '@/components/layouts';
 
 export function RegisterPage () {
     return (
