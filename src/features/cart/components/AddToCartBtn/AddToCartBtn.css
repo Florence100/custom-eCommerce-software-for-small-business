@@ -1,0 +1,15 @@
+.add-to-cart {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+}
+
+.add-to-cart svg {
+    fill: var(--dark-gray);
+    transition: all 0.2s ease;
+}

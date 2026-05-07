@@ -1,9 +1,10 @@
+import { BasketIcon } from '@/components/ui';
 import './CartIcon.css';
 
 export function CartIcon () {
     return (
         <div className='cart'>
-            <div className='cart__icon'></div>
+            <BasketIcon />
             <div className='cart__counter'>3</div>
         </div>
     )

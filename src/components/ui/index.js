@@ -3,3 +3,5 @@ export * from './Input/Input';
 export * from './Form/Form';
 export * from './Logo/Logo';
 export * from './Navigation/Navigation';
+export * from './HeartIcon/HeartIcon';
+export * from './BasketIcon/BasketIcon';

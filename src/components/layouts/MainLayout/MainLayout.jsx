@@ -1,14 +1,15 @@
 import { Header } from '@/components/layouts';
-import { Outlet } from 'react-router';
+import { Container } from '@/components/layouts/index'
 import './MainLayout.css';
 
-export function MainLayout () {
+export function MainLayout (props) {
     return (
         <div className="main-layout">
             <Header />
-
             <main className="main-layout__content">
-                <Outlet /> 
+                <Container>
+                    { props.children }
+                </Container>
             </main>
         </div>
     )

@@ -1,4 +1,5 @@
 import { useGetAllQuery } from '../../services/products';
+import { ProductCard } from '../ProductCard/ProductCard';
 import './ProductList.css';
 
 export function ProductList() {
@@ -6,7 +7,26 @@ export function ProductList() {
 
     console.log('data', data);
 
+    if (!data) return;
+
+    const products = data.products;
+
     return (
-        <>Product List</>
+        <div className='product-list'>
+            {
+                products.map((value) => {
+                    return (
+                        <ProductCard 
+                            title = { value.title } 
+                            img = { value?.images[0] }
+                            price = { value.price }
+                            key = { value.id }
+                            discount = { value.discountPercentage }
+                        />
+                    )
+                })
+            }
+        </div>
+        
     )
 }

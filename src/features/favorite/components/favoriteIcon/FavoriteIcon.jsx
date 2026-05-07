@@ -1,10 +1,11 @@
+import { HeartIcon } from '@/components/ui';
 import './FavoriteIcon.css';
 
 export function FavoriteIcon () {
     return (
         <div className='favorite'>
-            <div className='favorite__icon'></div>
-            <div className='favorite__counter'>0</div>
+            <HeartIcon />
+            <div className='favorite__counter'>3</div>
         </div>
     )
 }

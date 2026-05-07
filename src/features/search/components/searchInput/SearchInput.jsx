@@ -6,7 +6,7 @@ export function SearchInput () {
     return (
         <Input 
             className="search-input input"
-            icon={<img src={searchIcon} alt="" style={{ height: '100%'}} />}
+            icon={<img src={searchIcon} alt="" style={{ height: '100%', width: '1rem'}} />}
         />
     )
 }

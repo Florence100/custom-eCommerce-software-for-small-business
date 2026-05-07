@@ -7,7 +7,7 @@ export function Navigation () {
             <ul className="nav__list">
                 <li className="nav__item">
                     <NavLink
-                        to="/#about"
+                        to="/#"
                         className={({ isActive }) => isActive ? "active" : "" }
                     >
                         About us

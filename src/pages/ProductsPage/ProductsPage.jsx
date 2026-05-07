@@ -6,9 +6,8 @@ export function ProductPage() {
     return (
         <>
             <MainLayout>
-                
+                <ProductList />
             </MainLayout>
-            <ProductList />
         </>
     )
 }

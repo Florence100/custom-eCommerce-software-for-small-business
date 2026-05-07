@@ -5,12 +5,8 @@
     cursor: pointer;
 }
 
-.cart__icon {
-    width: 20px;
-    height: 20px;
-    background-image: url('@/assets/images/icons/solar_cart-bold.svg');
-    background-position: center;
-    background-size: contain;
+.cart svg {
+    fill: var(--white);
 }
 
 .cart__counter {
