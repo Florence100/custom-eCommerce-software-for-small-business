@@ -1,10 +1,9 @@
-import { Logo } from '@/components/ui/index';
+import { Logo, Navigation } from '@/components/ui';
 import { Container } from '../index';
 import { AuthStatus } from '@/features/auth';
 import { CartIcon } from '@/features/cart';
 import { FavoriteIcon } from '@/features/favorite';
-import { SearchInput } from '@/features/search';
-import { Navigation } from '@/components/ui/index';
+import { SearchInput } from '@/features/products';
 import './Header.css';
 
 export function Header () {

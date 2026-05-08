@@ -6,6 +6,11 @@
     color: var(--text-inverse);
 }
 
+.search-input::placeholder {
+    color: var(--text-inverse);
+    opacity: 0.8;
+}
+
 .search-input:focus {
     background: rgba(255, 255, 255, 0.2);
 }
