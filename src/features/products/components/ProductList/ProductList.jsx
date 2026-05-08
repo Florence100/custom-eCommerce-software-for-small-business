@@ -1,13 +1,16 @@
-import { useGetAllQuery } from '../../services/products';
+import { useParams } from 'react-router';
+import { useGetAllQuery, useGetByCategoryQuery } from '../../services/products';
 import { ProductCard } from '../ProductCard/ProductCard';
+import { Loading, Error } from '@/components/ui';
 import './ProductList.css';
 
 export function ProductList() {
-    const { data, error, isLoading } = useGetAllQuery();
+    const { categoryName } = useParams();
 
-    console.log('data', data);
+    const { data, error, isLoading } = categoryName ? useGetByCategoryQuery(categoryName) : useGetAllQuery();
 
-    if (!data) return;
+    if (isLoading) return <Loading/>;
+    if (error) return <Error>Something went wrong...</Error>
 
     const products = data.products;
 

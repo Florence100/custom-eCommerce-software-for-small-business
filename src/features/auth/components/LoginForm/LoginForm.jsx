@@ -42,7 +42,7 @@ export function LoginForm () {
             
             if (result.success) {
                 dispatch(loginDispatch({ email: email }));
-                navigate('/');
+                navigate('/catalog');
             } else {
                 alert(result.message);
             }

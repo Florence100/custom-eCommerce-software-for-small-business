@@ -1,16 +1,24 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { LoginPage, RegisterPage, ProductPage } from './pages';
-import { AuthLayout } from '@/components/layouts';
+import { AuthLayout, MainLayout } from '@/components/layouts';
 
 export default function App () {
     return (
         <BrowserRouter>
             <Routes>
+
+                <Route path="/" element={<Navigate to="/catalog" replace />} />
+
                 <Route element={<AuthLayout />}>
                     <Route path="login" element={<LoginPage />} />
                     <Route path="register" element={<RegisterPage />} />
                 </Route>
-                <Route path="/" element={<ProductPage />} />
+
+                <Route path="/catalog" element={<MainLayout />}>
+                    <Route index element={<ProductPage />} />
+                    <Route path=":categoryName" element={<ProductPage />} />
+                </Route>
+                
             </Routes>
         </BrowserRouter>
     );

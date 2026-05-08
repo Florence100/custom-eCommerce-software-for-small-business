@@ -5,3 +5,5 @@ export * from './Logo/Logo';
 export * from './Navigation/Navigation';
 export * from './HeartIcon/HeartIcon';
 export * from './BasketIcon/BasketIcon';
+export * from './Loading/Loading';
+export * from './Error/Error';

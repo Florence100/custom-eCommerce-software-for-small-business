@@ -1,16 +1,12 @@
 import { Header } from '@/components/layouts';
-import { Container } from '@/components/layouts/index'
+import { Outlet } from 'react-router';
 import './MainLayout.css';
 
-export function MainLayout (props) {
+export function MainLayout () {
     return (
-        <div className="main-layout">
+        <div className='main-layout'>
             <Header />
-            <main className="main-layout__content">
-                <Container>
-                    { props.children }
-                </Container>
-            </main>
+            <Outlet />
         </div>
     )
 }
