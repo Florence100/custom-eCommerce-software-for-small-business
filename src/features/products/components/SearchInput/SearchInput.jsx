@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import { Input } from '@/components/ui';
 import searchIcon from '@/assets/images/icons/search.svg';
 import useDebounce from '@/hooks/useDebounce';
@@ -8,15 +8,18 @@ import './SearchInput.css';
 export function SearchInput () {
     const [ searchItem, setSearchItem ] = useState('');
     const debouncedSearch = useDebounce(searchItem, 500);
+
     const navigate = useNavigate();
+    const location = useLocation();
+    const pathName = location.pathname;
 
     useEffect(() => {
         if (debouncedSearch.trim()) {
             navigate(`/catalog/search?q=${debouncedSearch}`);
-        } else {
+        } else if (pathName.startsWith('/catalog/search')) {
             navigate('/catalog');
         }
-    }, [navigate, debouncedSearch])
+    }, [navigate, debouncedSearch, pathName])
 
     return (
         <Input 

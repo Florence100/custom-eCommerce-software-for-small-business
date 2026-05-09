@@ -1,7 +1,7 @@
 import { Logo, Navigation } from '@/components/ui';
 import { Container } from '../index';
 import { AuthStatus } from '@/features/auth';
-import { CartIcon } from '@/features/cart';
+import { HeaderCart } from '@/features/cart';
 import { FavoriteIcon } from '@/features/favorite';
 import { SearchInput } from '@/features/products';
 import './Header.css';
@@ -18,7 +18,7 @@ export function Header () {
                     </div>
                     <div className='user-actions'>
                         <FavoriteIcon />
-                        <CartIcon />
+                        <HeaderCart />
                         <AuthStatus />
                     </div>
                 </div>

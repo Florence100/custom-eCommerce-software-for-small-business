@@ -23,10 +23,10 @@ export function ProductList() {
 
     const { data, error, isLoading } = request;
 
-    if (isLoading) return <Loading/>;
+    if (isLoading) return <div className='product-list'><Loading/></div>;
     if (error) return <Error>Something went wrong...</Error>
 
-    const products = data.products;
+    let products = data.products;
 
     return (
         <div className='product-list'>
@@ -34,16 +34,15 @@ export function ProductList() {
                 products.map((value) => {
                     return (
                         <ProductCard 
-                            title = { value.title } 
-                            img = { value?.images[0] }
-                            price = { value.price }
-                            key = { value.id }
-                            discount = { value.discountPercentage }
+                            id={value.id}
+                            title={value.title} 
+                            img={value?.images[0]}
+                            price={value.price}
+                            key={value.id}
                         />
                     )
                 })
             }
         </div>
-        
     )
 }
