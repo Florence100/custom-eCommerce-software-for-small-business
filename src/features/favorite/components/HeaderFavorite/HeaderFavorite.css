@@ -1,15 +1,15 @@
-.favorite {
+.header-favorite {
     display: flex;
     align-items: center;
     gap: 4px;
     cursor: pointer;
 }
 
-.favorite svg {
+.header-favorite svg {
     fill: var(--red);
 }
 
-.favorite__counter {
+.header-favorite__counter {
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--text-inverse);

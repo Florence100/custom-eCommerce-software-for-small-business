@@ -5,6 +5,7 @@ import './AddToCartControl.css';
 
 export function AddToCartControl ({ productId, productTitle, productPrice }) {
     const dispatch = useDispatch();
+    
     const existingItem = useSelector((state) => {
         const cart = state.cart.items;
         return cart.find((item) => item.id === productId);

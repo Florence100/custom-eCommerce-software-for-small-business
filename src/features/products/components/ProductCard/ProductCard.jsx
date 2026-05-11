@@ -12,7 +12,10 @@ export function ProductCard ({ id, title, price, img  = null }) {
             <div className='card__info'>
                 <div className='card__title'>{title}</div>
                 <div className='card__price'>{price} €</div>
-                <AddToFavoriteBtn />
+                <AddToFavoriteBtn 
+                    productId={id}
+                    productTitle={title}
+                />
                 <AddToCartControl 
                     productId={id}
                     productTitle={title}
