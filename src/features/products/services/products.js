@@ -32,5 +32,4 @@ export const {
     useGetCategoriesQuery, 
     useGetCategoriesListQuery, 
     useGetByCategoryQuery,
-    useSortQuery,
 } = productsApi;

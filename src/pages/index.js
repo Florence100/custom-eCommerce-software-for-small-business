@@ -1,3 +1,4 @@
 export { LoginPage } from './LoginPage/LoginPage';
 export { RegisterPage } from './RegisterPage/RegisterPage';
-export { ProductPage } from './ProductsPage/ProductsPage';
+export { ProductsPage } from './ProductsPage/ProductsPage';
+export { ProductDetailsPage } from './ProductDetailsPage/ProductDetailsPage';

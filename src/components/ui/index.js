@@ -7,3 +7,5 @@ export * from './HeartIcon/HeartIcon';
 export * from './BasketIcon/BasketIcon';
 export * from './Loading/Loading';
 export * from './Error/Error';
+export * from './ImageGallery/ImageGallery';
+export * from './NextIcon/NextIcon';
