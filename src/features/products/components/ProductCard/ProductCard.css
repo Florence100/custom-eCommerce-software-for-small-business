@@ -8,6 +8,7 @@
     gap: 0.75rem;
     width: 100%;
     aspect-ratio: 240 / 372;
+    cursor: pointer;
 }
 
 .card__img,

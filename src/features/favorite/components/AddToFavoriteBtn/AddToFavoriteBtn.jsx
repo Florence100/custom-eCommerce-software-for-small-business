@@ -11,7 +11,8 @@ export function AddToFavoriteBtn ({ productId, productTitle }) {
         return favorite.find((item) => item.id === productId);
     })
 
-    function onClickHandler() {
+    function onClickHandler(e) {
+        e.stopPropagation();
         dispatch(toggleFavorite({id: productId, title: productTitle}));
     }
 

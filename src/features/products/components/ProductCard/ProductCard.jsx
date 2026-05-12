@@ -2,9 +2,9 @@ import { AddToFavoriteBtn } from '@/features/favorite';
 import { AddToCartControl } from '@/features/cart';
 import './ProductCard.css';
 
-export function ProductCard ({ id, title, price, rating, img  = null }) {
+export function ProductCard ({ id, title, price, rating, img  = null, ...props }) {
     return (
-        <div className='card'>
+        <div {...props} className='card'>
             { img 
                 ? <img src={img} alt='photo' className='card__img'/> 
                 : <div className='card__fallback'>No image</div> 

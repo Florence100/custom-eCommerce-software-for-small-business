@@ -1,8 +1,5 @@
-import { useParams, useLocation } from 'react-router';
-import { 
-    useGetAllQuery, 
-    useGetByCategoryQuery,
-} from '../../services/products';
+import { useParams, useLocation, useNavigate } from 'react-router';
+import { useGetAllQuery, useGetByCategoryQuery } from '../../services/products';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Loading, Error } from '@/components/ui';
 import './ProductList.css';
@@ -11,9 +8,10 @@ export function ProductList() {
     const PRODUCT_LIMIT = 30;
 
     const { categoryName } = useParams();
+    let navigate = useNavigate();
     const location = useLocation();
-    const search = location.search;
 
+    const search = location.search;
     const queryParams = new URLSearchParams(search);
     const searchQuery = queryParams.get('q')?.toLowerCase() || '';
 
@@ -62,6 +60,7 @@ export function ProductList() {
                             price={value.price}
                             key={value.id}
                             rating={value.rating}
+                            onClick={() => {navigate(`/detail/${value.id}`)}}
                         />
                     )
                 })

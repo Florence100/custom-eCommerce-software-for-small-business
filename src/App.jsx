@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
-import { LoginPage, RegisterPage, ProductPage } from './pages';
+import { LoginPage, RegisterPage, ProductsPage, ProductDetailsPage } from './pages';
 import { AuthLayout, MainLayout } from '@/components/layouts';
 
 export default function App () {
@@ -15,10 +15,14 @@ export default function App () {
                 </Route>
 
                 <Route path="/catalog" element={<MainLayout />}>
-                    <Route index element={<ProductPage />} />
-                    <Route path=":categoryName" element={<ProductPage />} />
+                    <Route index element={<ProductsPage />} />
+                    <Route path=":categoryName" element={<ProductsPage />} />
                 </Route>
-                
+
+                <Route path="/detail" element={<MainLayout />}>
+                    <Route path=":productId" element={<ProductDetailsPage />} />
+                </Route>
+
             </Routes>
         </BrowserRouter>
     );

@@ -11,7 +11,8 @@ export function AddToCartControl ({ productId, productTitle, productPrice }) {
         return cart.find((item) => item.id === productId);
     })
 
-    function increaseHandler () {
+    function increaseHandler (e) {
+        e.stopPropagation();
         dispatch(addToCart({
             id: productId,
             title: productTitle,
@@ -19,7 +20,8 @@ export function AddToCartControl ({ productId, productTitle, productPrice }) {
         }))
     }
 
-    function decreaseHandler () {
+    function decreaseHandler (e) {
+        e.stopPropagation();
         dispatch(removeFromCart({
             id: productId,
             title: productTitle,
