@@ -1,20 +1,19 @@
 import './Input.css';
 
 export function Input ({ label, error, icon, ...props }) {
-    console.log(error)
     return (
-        <div className="input-wrapper">
+        <div className='input-wrapper'>
             { label && <label>{label}</label> }
 
-            <div className="input-field-container">
-                { icon && <span className="input-icon">{icon}</span> }
+            <div className='input-field-container'>
+                { icon && <span className='input-icon'>{icon}</span> }
                 <input 
                     className={ error ? 'input input--error' : 'input' }
                     { ...props }
                 />
             </div>
             
-            { error && <span className="error-message">{error}</span> }
+            { error && <span className='error-message'>{error}</span> }
         </div>
     )
 }

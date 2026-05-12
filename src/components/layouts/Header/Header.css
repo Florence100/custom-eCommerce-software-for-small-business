@@ -1,0 +1,27 @@
+.header {
+    background: var(--branded);
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    gap: 1.75rem;
+}
+
+.user-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.header__centre {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

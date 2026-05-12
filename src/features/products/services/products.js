@@ -5,7 +5,9 @@ export const productsApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com' }),
     endpoints: (builder) => ({
         getAll: builder.query({
-            query: () => 'products',
+            query: ({ limit=30, sortBy='title', order='asc' }) => {
+                return `products?limit=${limit}&sortBy=${sortBy}&order=${order}`
+            },
         }),
         getOne: builder.query({
             query: (id) => `products/${id}`,
@@ -17,7 +19,9 @@ export const productsApi = createApi({
             query: () => 'products/category-list',
         }),
         getByCategory: builder.query({
-            query: (category) => `products/category/${category}`,
+            query: ({ category, limit=30, sortBy='title', order='asc'}) => {
+                return `products/category/${category}?limit=${limit}&sortBy=${sortBy}&order=${order}`;
+            },
         }),
     }),
 })
@@ -27,5 +31,6 @@ export const {
     useGetOneQuery, 
     useGetCategoriesQuery, 
     useGetCategoriesListQuery, 
-    useGetByCategoryQuery 
+    useGetByCategoryQuery,
+    useSortQuery,
 } = productsApi;

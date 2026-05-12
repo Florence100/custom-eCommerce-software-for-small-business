@@ -1,0 +1,31 @@
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.categories__title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+.categories__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.categories a {
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.categories a.active {
+    color: var(--branded);
+}
+
+.categories a:hover {
+    opacity: 0.7;
+}

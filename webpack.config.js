@@ -26,6 +26,7 @@ module.exports = {
   entry: './src/index.js',
 
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,

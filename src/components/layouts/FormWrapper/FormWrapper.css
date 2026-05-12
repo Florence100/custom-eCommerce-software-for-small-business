@@ -6,7 +6,7 @@
     width: 450px;
     gap: 2rem;
     padding: 2rem;
-    border-radius: 16px;
+    border-radius: var(--radius-small);
     border: 1px solid var(--border);
     background: var(--bg-layer-1);
     box-shadow: 0 4px 10px #00000026;

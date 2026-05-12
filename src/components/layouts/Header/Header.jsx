@@ -1,0 +1,28 @@
+import { Logo, Navigation } from '@/components/ui';
+import { Container } from '../index';
+import { AuthStatus } from '@/features/auth';
+import { HeaderCart } from '@/features/cart';
+import { HeaderFavorite } from '@/features/favorite';
+import { SearchInput } from '@/features/products';
+import './Header.css';
+
+export function Header () {
+    return (
+        <div className='header'>
+            <Container>
+                <div className='header-content'>
+                    <Logo />
+                    <div className='header__centre'>
+                        <SearchInput />
+                        <Navigation />
+                    </div>
+                    <div className='user-actions'>
+                        <HeaderFavorite />
+                        <HeaderCart />
+                        <AuthStatus />
+                    </div>
+                </div>
+            </Container>
+        </div>
+    )
+}

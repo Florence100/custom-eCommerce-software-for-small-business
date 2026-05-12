@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { LoginForm } from '@/features/auth';
-import { FormWrapper } from '@/components/ui';
+import { FormWrapper } from '@/components/layouts';
 
 export function LoginPage () {
     return (
