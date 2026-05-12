@@ -1,32 +1,50 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router';
+import { useState, useEffect, useLayoutEffect } from 'react';
+import { useNavigate, useLocation, useSearchParams } from 'react-router';
 import { Input } from '@/components/ui';
 import searchIcon from '@/assets/images/icons/search.svg';
 import useDebounce from '@/hooks/useDebounce';
 import './SearchInput.css';
 
 export function SearchInput () {
-    const [ searchItem, setSearchItem ] = useState('');
-    const debouncedSearch = useDebounce(searchItem, 500);
-
     const navigate = useNavigate();
     const location = useLocation();
-    const pathName = location.pathname;
 
-    useEffect(() => {
-        if (debouncedSearch.trim()) {
-            navigate(`/catalog/search?q=${debouncedSearch}`);
-        } else if (pathName.startsWith('/catalog/search')) {
-            navigate('/catalog');
+    const [searchParams] = useSearchParams();
+
+    const queryFromUrl = searchParams.get('q') || '';
+
+    const [value, setValue] = useState(queryFromUrl);
+
+    const debouncedValue = useDebounce(value, 500);
+
+   useEffect(() => {
+        const params = new URLSearchParams(location.search);
+
+        if (debouncedValue.trim()) {
+            params.set('q', debouncedValue);
+        } else {
+            params.delete('q');
         }
-    }, [navigate, debouncedSearch, pathName])
+
+        navigate(
+            {
+                pathname: location.pathname,
+                search: params.toString(),
+            },
+            { replace: true }
+        );
+    }, [
+        debouncedValue,
+        navigate,
+        location.pathname,
+    ]);
 
     return (
         <Input 
             className='search-input input'
             icon={<img src={searchIcon} alt="" style={{ height: '100%', width: '1rem'}} />}
-            onChange={(e) => setSearchItem(e.target.value)}
-            value={searchItem}
+            onChange={(e) => setValue(e.target.value)}
+            value={value}
             placeholder='Search products...'
         />
     )

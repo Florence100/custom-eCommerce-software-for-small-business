@@ -50,3 +50,14 @@
 .card__price {
     font-weight: 600;
 }
+
+.card__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card__rating {
+    opacity: 0.7;
+    color: var(--branded);
+}

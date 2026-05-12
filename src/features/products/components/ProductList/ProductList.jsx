@@ -1,25 +1,39 @@
 import { useParams, useLocation } from 'react-router';
-import { useGetAllQuery, useGetByCategoryQuery, useSearchQuery } from '../../services/products';
+import { 
+    useGetAllQuery, 
+    useGetByCategoryQuery,
+} from '../../services/products';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Loading, Error } from '@/components/ui';
 import './ProductList.css';
 
 export function ProductList() {
+    const PRODUCT_LIMIT = 30;
+
     const { categoryName } = useParams();
-    const { search } = useLocation();
+    const location = useLocation();
+    const search = location.search;
 
     const queryParams = new URLSearchParams(search);
-    const searchQuery = queryParams.get('q');
+    const searchQuery = queryParams.get('q')?.toLowerCase() || '';
 
-    let request;
+    const sortByQuery = queryParams.get('sortBy') || '';
+    const orderQuery = queryParams.get('order') || '';
 
-    if (searchQuery) {
-        request = useSearchQuery(searchQuery);
-    } else if (categoryName) {
-        request = useGetByCategoryQuery(categoryName);
-    } else {
-        request = useGetAllQuery();
-    }
+    const request = categoryName
+        ? useGetByCategoryQuery(
+            { 
+                category: categoryName, 
+                limit: searchQuery ? 0 : PRODUCT_LIMIT, 
+                sortBy: sortByQuery, order: orderQuery 
+            }
+        )
+        : useGetAllQuery(
+            { 
+                limit: searchQuery ? 0 : PRODUCT_LIMIT, 
+                sortBy: sortByQuery, order: orderQuery 
+            }
+        );
 
     const { data, error, isLoading } = request;
 
@@ -27,6 +41,14 @@ export function ProductList() {
     if (error) return <Error>Something went wrong...</Error>
 
     let products = data.products;
+
+    if (searchQuery) {
+        products = products.filter((product) =>
+            product.title
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
+        );
+    }
 
     return (
         <div className='product-list'>
@@ -39,6 +61,7 @@ export function ProductList() {
                             img={value?.images[0]}
                             price={value.price}
                             key={value.id}
+                            rating={value.rating}
                         />
                     )
                 })

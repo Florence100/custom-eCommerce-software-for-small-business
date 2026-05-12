@@ -2,10 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0.5rem;
     min-width: 6rem;
+    width: fit-content;
 }
 
 .cart-control button {

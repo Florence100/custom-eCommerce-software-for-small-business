@@ -17,7 +17,6 @@ export default function App () {
                 <Route path="/catalog" element={<MainLayout />}>
                     <Route index element={<ProductPage />} />
                     <Route path=":categoryName" element={<ProductPage />} />
-                    <Route path="search" element={<ProductPage />} />
                 </Route>
                 
             </Routes>
