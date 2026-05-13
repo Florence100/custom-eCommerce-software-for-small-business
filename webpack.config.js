@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -13,6 +14,11 @@ const plugins = [
   }),
   new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css',
+  }),
+  new CopyPlugin({
+    patterns: [
+      { from: 'public' }
+    ],
   }),
 ];
 
