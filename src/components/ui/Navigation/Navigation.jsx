@@ -1,30 +1,30 @@
 import { NavLink } from 'react-router';
 import './Navigation.css';
 
-export function Navigation () {
+export function Navigation (props) {
     return (
-        <nav className="nav">
-            <ul className="nav__list">
-                <li className="nav__item">
+        <nav {...props}>
+            <ul className='nav__list'>
+                <li className='nav__item'>
                     <NavLink
-                        to="/#"
-                        className={({ isActive }) => isActive ? "active" : "" }
+                        to='/#'
+                        className={({ isActive }) => isActive ? 'active' : '' }
                     >
                         About us
                     </NavLink>
                 </li>
-                <li className="nav__item">
+                <li className='nav__item'>
                     <NavLink
-                        to="/#"
-                        className={({ isActive }) => isActive ? "active" : "" }
+                        to='/#'
+                        className={({ isActive }) => isActive ? 'active' : '' }
                     >
                         All shops
                     </NavLink>
                 </li>
-                <li className="nav__item">
+                <li className='nav__item'>
                     <NavLink
-                        to="/#"
-                        className={({ isActive }) => isActive ? "active" : "" }
+                        to='/#'
+                        className={({ isActive }) => isActive ? 'active' : '' }
                     >
                         Become a merchant
                     </NavLink>

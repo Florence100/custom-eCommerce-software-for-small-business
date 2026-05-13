@@ -67,10 +67,13 @@ label {
     src: url("../fonts/sf-ui-display/sf-ui-display-light-58646b33e0551.otf");
 }
 
+html {
+    font-size: 16px;
+}
+
 * {
     font-family: var(--font-text);
     color: var(--text-primary);
-    font-size: 16px;
 }
 
 .link {
@@ -86,4 +89,10 @@ label {
     outline: 2px solid var(--branded);
     outline-offset: 2px;
     border-radius: var(--radius);
+}
+
+@media (max-width: 1024px) {
+    html {
+        /* font-size: 14px; */
+    }
 }

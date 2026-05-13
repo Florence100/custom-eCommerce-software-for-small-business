@@ -22,7 +22,7 @@
 }
 
 .product-counter {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     text-align: center;
 }
 

@@ -1,3 +1,50 @@
 .side-bar {
     min-width: 14rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.side-bar__title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+.side-bar__toggle-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .side-bar {
+        position: absolute;
+        top: 0.875rem;
+        left: 1rem;
+        z-index: 100;
+        min-width: 16rem;
+    }
+
+    .side-bar__title {
+        display: none;
+    }
+
+    .side-bar__toggle-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        opacity: 0.5;
+        width: max-content;
+    }
+
+    .side-bar__arrow-icon {
+        fill: var(--text-primary);
+    }
+}
+
+@media (max-width: 640px) {
+    .side-bar {
+        left: 0;
+    }
 }

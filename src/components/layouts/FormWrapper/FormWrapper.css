@@ -11,3 +11,11 @@
     background: var(--bg-layer-1);
     box-shadow: 0 4px 10px #00000026;
 }
+
+@media (max-width: 640px) {
+    .form-wrapper {
+        width: calc(100% - 2rem);
+        padding: 2rem 1rem;
+        max-width: 450px;
+    }
+}

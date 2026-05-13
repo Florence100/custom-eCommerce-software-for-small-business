@@ -1,0 +1,7 @@
+svg {
+    transition: transform 0.2s ease;
+}
+
+svg.up {
+    transform: scaleY(-1);
+}

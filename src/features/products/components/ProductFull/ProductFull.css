@@ -13,13 +13,14 @@
 .product-full__imgs {
     max-width: 100%;
     width: 35%;
-    min-width: 250px;
+    min-width: 300px;
 }
 
 .product-full__info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 1.5rem;
 }
 
 .product-full__favorite {
@@ -48,7 +49,7 @@
 }
 
 .product-full__brand {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     opacity: 0.7;
 }
 
@@ -62,12 +63,12 @@
 }
 
 .product-full__price {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     font-weight: 600;
 }
 
 .product-full button {
-    font-size: 1rem;
+    font-size: var(--font-size-md);
 }
 
 .product-full .cart-control {
@@ -80,5 +81,28 @@
 }
 
 .product-full .product-counter {
-    font-size: 1rem;
+    font-size: var(--font-size-md);
+}
+
+@media (max-width: 640px) {
+    .product-full__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-full__title {
+        font-size: var(--font-size-lg);
+    }
+
+    .product-full__favorite button {
+        top: 0.15rem;
+    }
+
+    .product-full__favorite {
+        top: -2.5rem;
+    }
+    
+    .product-full__imgs {
+        width: 100%;
+    }
 }
