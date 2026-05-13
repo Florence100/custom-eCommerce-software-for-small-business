@@ -9,8 +9,6 @@ export function ProductFull ({ productId }) {
     if (isLoading) return <div className='product-list'><Loading/></div>;
     if (error) return <Error>Something went wrong...</Error>
 
-    console.log(data)
-
     return (
         <div className='product-full'>
             <h2 className='product-full__title'>{data.title}</h2>

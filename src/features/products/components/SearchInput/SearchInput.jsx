@@ -1,11 +1,11 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, useSearchParams } from 'react-router';
 import { Input } from '@/components/ui';
 import searchIcon from '@/assets/images/icons/search.svg';
 import useDebounce from '@/hooks/useDebounce';
 import './SearchInput.css';
 
-export function SearchInput () {
+export function SearchInput (props) {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -41,11 +41,12 @@ export function SearchInput () {
 
     return (
         <Input 
-            className='search-input input'
+            {...props}
             icon={<img src={searchIcon} alt="" style={{ height: '100%', width: '1rem'}} />}
             onChange={(e) => setValue(e.target.value)}
             value={value}
             placeholder='Search products...'
+            name='search-input'
         />
     )
 }

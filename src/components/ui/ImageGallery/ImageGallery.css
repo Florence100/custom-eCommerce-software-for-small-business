@@ -27,7 +27,7 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 4px 4px var(--shadow);;
+    box-shadow: 0 4px 4px var(--shadow);
     transition: background-color 0.2s;
     display: flex;
     justify-content: center;

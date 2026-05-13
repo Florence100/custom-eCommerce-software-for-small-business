@@ -9,3 +9,5 @@ export * from './Loading/Loading';
 export * from './Error/Error';
 export * from './ImageGallery/ImageGallery';
 export * from './NextIcon/NextIcon';
+export * from './ArrowIcon/ArrowIcon';
+export * from './Coverage/Coverage';

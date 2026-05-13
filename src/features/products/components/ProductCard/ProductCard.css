@@ -7,7 +7,6 @@
     background: var(--bg-layer-1);
     gap: 0.75rem;
     width: 100%;
-    aspect-ratio: 240 / 372;
     cursor: pointer;
 }
 
@@ -25,13 +24,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
 }
 
 .card__info {
     padding: 1rem;
     padding-top: 0;
-    font-size: 1rem;
+    font-size: var(--font-size-md);
     flex-grow: 1;
     line-height: 100%;
     display: flex;

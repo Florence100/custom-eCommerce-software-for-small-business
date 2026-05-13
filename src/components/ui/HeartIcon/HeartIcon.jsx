@@ -1,6 +1,6 @@
 export function HeartIcon () {
     return (
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path 
                 d="M9.99935 17.7917L8.79102 16.6917C4.49935 12.8 1.66602 10.225 1.66602 7.08333C1.66602 
                 4.50833 3.68268 2.5 6.24935 2.5C7.69935 2.5 9.09102 3.175 9.99935 4.23333C10.9077 3.175 

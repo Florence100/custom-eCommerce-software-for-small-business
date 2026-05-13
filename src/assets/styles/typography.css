@@ -1,6 +1,5 @@
-/* h1 {} */
 h2 {
-    font-size: 1.75rem;
+    font-size: var(--font-size-xl);
 }
 
 p {
@@ -15,6 +14,3 @@ p {
 .text-right {
     text-align: right;
 }
-
-/* .text-error { color: #dc3545; }
-.text-success { color: #28a745; } */

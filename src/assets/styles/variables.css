@@ -23,4 +23,10 @@
 
     --radius: 20px;
     --radius-small: 16px;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.75rem;
 }

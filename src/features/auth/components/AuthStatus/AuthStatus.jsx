@@ -1,7 +1,7 @@
 import './AuthStatus.css';
 
-export function AuthStatus () {
+export function AuthStatus (props) {
     return (
-        <div className='auth-status'></div>
+        <div className='auth-status' {...props}></div>
     )
 }

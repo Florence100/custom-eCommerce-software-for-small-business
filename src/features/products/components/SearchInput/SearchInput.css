@@ -14,3 +14,13 @@
 .search-input:focus {
     background: rgba(255, 255, 255, 0.2);
 }
+
+.search-input_mobile-menu {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .search-input {
+        width: 11rem;
+    }
+}

@@ -47,7 +47,7 @@ export function LoginForm () {
                 alert(result.message);
             }
         } catch (e) {
-            console.error(e, )
+            console.error(e)
         } finally {
             setIsPending(false);
         }
