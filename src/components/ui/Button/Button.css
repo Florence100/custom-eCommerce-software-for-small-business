@@ -1,0 +1,20 @@
+.button {
+    background: var(--branded);
+    color: var(--text-inverse);
+    border-radius: var(--radius);
+    padding: 0.75rem 1.125rem;
+    font-size: var(--font-size-sm);
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.button:hover, 
+.button:focus {
+    background: var(--red);
+}
+
+.button:disabled {
+    opacity: 0.8;
+}

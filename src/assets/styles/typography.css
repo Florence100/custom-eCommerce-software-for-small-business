@@ -1,0 +1,16 @@
+h2 {
+    font-size: var(--font-size-xl);
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}

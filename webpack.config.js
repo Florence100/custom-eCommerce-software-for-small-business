@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -26,6 +26,7 @@ module.exports = {
   entry: './src/index.js',
 
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
@@ -34,6 +35,9 @@ module.exports = {
   devtool: isDevelopment ? 'eval-cheap-module-source-map' : 'source-map',
 
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
     extensions: ['.js', '.jsx'],
   },
 
@@ -42,6 +46,17 @@ module.exports = {
     open: true,
     port: 3000,
     historyApiFallback: true,
+  },
+
+  optimization: {
+    minimize: isProduction,
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 
   plugins,
@@ -65,6 +80,10 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/,
         type: 'asset/resource',
       },
       {

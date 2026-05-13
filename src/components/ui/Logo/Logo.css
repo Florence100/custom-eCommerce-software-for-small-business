@@ -1,0 +1,35 @@
+.logo {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.logo__img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo__text {
+    font-size: var(--font-size-sm);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-inverse);
+    min-width: 3.5rem;
+    width: 4.5rem;
+}
+
+@media (max-width: 1024px) {
+    .logo__text {
+        width: 3.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .logo {
+        gap: 0.5rem;
+    }
+
+    .logo__text {
+        min-width: 3rem;
+    }
+}

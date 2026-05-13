@@ -1,0 +1,32 @@
+:root {
+    --font-text: "SF UI Display Regular", sans-serif;
+    
+    --branded: #e55a63;
+    --white: #ffffff;
+    --gray: #e2e2e4;
+    --dark-gray: #7d7d7d;
+    --red: #bb464e;
+
+    --text-primary: #333333;
+    --text-secondary: rgba(51, 51, 51, 0.5);
+    --text-inverse: var(--white);
+    --text-accent: var(--branded);
+    --text-form: var(--dark-gray);
+    --border: #e4e4e4;
+    --outline: var(--dark-gray);
+    --error: var(--red);
+
+    --bg-base: #f5f5f7;
+    --bg-layer-1: var(--white);
+    --bg-layer-2: #fbfbfb;
+    --shadow: #0000001a;
+
+    --radius: 20px;
+    --radius-small: 16px;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.75rem;
+}

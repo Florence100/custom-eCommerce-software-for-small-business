@@ -1,0 +1,44 @@
+.sort-control {
+    display: flex;
+    gap: 2rem;
+}
+
+.sort-control__title {
+    opacity: 0.5;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.sort-control__container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.sort-control__link {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+}
+
+.sort-control__link.active {
+    color: var(--branded);
+    opacity: 0.7;
+}
+
+.link.sort-control__link:focus:not(:hover):not(:active) {
+    outline: 2px solid rgba(255, 255, 255, 0);
+}
+
+@media (max-width: 768px) {
+    .sort-control {
+        position: absolute;
+        top: 1rem;
+        right: 0rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .sort-control {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}

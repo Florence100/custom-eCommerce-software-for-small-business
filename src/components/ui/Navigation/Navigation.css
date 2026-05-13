@@ -1,0 +1,26 @@
+.nav {
+    display: flex;
+}
+
+.nav__list {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav_mobile-menu .nav__list {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nav__item a {
+    color: var(--text-inverse);
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 4px;
+    transition: all 0.2s ease;
+    font-size: var(--font-size-sm);
+}
+
+.nav__item a:hover {
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+}

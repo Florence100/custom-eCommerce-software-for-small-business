@@ -1,0 +1,26 @@
+.search-input {
+    background: #FFFFFF4D;
+    width: 15rem;
+    height: 2rem;
+    padding-left: 2.5rem;
+    color: var(--text-inverse);
+}
+
+.search-input::placeholder {
+    color: var(--text-inverse);
+    opacity: 0.8;
+}
+
+.search-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.search-input_mobile-menu {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .search-input {
+        width: 11rem;
+    }
+}

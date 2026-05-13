@@ -1,0 +1,17 @@
+.header-favorite {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.header-favorite svg {
+    fill: var(--red);
+}
+
+.header-favorite__counter {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--text-inverse);
+    min-width: 1.5rem;
+}
