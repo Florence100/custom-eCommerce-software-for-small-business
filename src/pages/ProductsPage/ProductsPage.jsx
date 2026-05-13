@@ -27,7 +27,6 @@ export function ProductsPage() {
                     </button>
                     <Categories 
                         className={ isOpened ? 'categories opened' : 'categories' }
-                        onClick={ onClickHandler } 
                     />
                 </SideBar>
 
