@@ -72,7 +72,7 @@ export function LoginForm () {
                 setPassword={setPassword}
                 isSubmit={isSubmit}
             />
-            <Button type='submit' style={{ width: '100%' }} disabled={ isPending }>Log in</Button>
+            <Button type='submit' disabled={ isPending }>Log in</Button>
         </Form>
     )
 }

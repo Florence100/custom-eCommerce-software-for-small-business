@@ -76,12 +76,17 @@
 }
 
 .product-full .cart-control button {
-    padding: 0.75rem 1rem;
+    height: 2.5rem;
     border-radius: var(--radius);
 }
 
 .product-full .product-counter {
     font-size: var(--font-size-md);
+}
+
+.product-full .cart-control button[aria-label="Increase"],
+.product-full .cart-control button[aria-label="Decrease"] {
+    width: 2.5rem;
 }
 
 @media (max-width: 640px) {
