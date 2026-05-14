@@ -18,20 +18,32 @@ export function ProductList() {
     const sortByQuery = queryParams.get('sortBy') || '';
     const orderQuery = queryParams.get('order') || '';
 
+    const allProductsQuery = useGetAllQuery(
+        {
+            limit: searchQuery ? 0 : PRODUCT_LIMIT,
+            sortBy: sortByQuery,
+            order: orderQuery,
+        },
+        {
+            skip: !!categoryName,
+        }
+    );
+
+    const categoryProductsQuery = useGetByCategoryQuery(
+        {
+            category: categoryName,
+            limit: searchQuery ? 0 : PRODUCT_LIMIT,
+            sortBy: sortByQuery,
+            order: orderQuery,
+        },
+        {
+            skip: !categoryName,
+        }
+    );
+
     const request = categoryName
-        ? useGetByCategoryQuery(
-            { 
-                category: categoryName, 
-                limit: searchQuery ? 0 : PRODUCT_LIMIT, 
-                sortBy: sortByQuery, order: orderQuery 
-            }
-        )
-        : useGetAllQuery(
-            { 
-                limit: searchQuery ? 0 : PRODUCT_LIMIT, 
-                sortBy: sortByQuery, order: orderQuery 
-            }
-        );
+        ? categoryProductsQuery
+        : allProductsQuery;
 
     const { data, error, isLoading } = request;
 

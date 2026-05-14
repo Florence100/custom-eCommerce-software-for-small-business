@@ -17,6 +17,7 @@ export function Categories (props) {
                         to={ '/catalog' }
                         className={({ isActive }) => isActive ? "active" : "" }
                         onClick={ props.onClick }
+                        end
                     >
                         All
                     </NavLink>
