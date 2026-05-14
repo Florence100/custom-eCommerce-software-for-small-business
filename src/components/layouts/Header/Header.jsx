@@ -50,7 +50,6 @@ export function Header () {
                 </div>
                 
                 <Coverage 
-                    isVisible={isMenuOpen}
                     onClick={() => setIsMenuOpen(prev => !prev)}
                     className={isMenuOpen ? 'isVisible' : ''}
                 />
