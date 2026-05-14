@@ -42,7 +42,7 @@ export function SearchInput (props) {
     return (
         <Input 
             {...props}
-            icon={<img src={searchIcon} alt="" style={{ height: '100%', width: '1rem'}} />}
+            icon={<img src={searchIcon} alt='Icon' />}
             onChange={(e) => setValue(e.target.value)}
             value={value}
             placeholder='Search products...'

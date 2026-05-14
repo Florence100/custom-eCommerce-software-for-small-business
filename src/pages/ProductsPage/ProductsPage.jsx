@@ -36,9 +36,8 @@ export function ProductsPage() {
                 </main>
 
                 <Coverage 
-                    isVisible={isOpened}
                     onClick={onClickHandler}
-                    style={{ opacity: 0 }}
+                    className={isOpened ? 'isVisible transparent' : 'transparent'}
                 />
 
             </div>

@@ -1,5 +1,4 @@
 .input-wrapper {
-    width: 100%;
     position: relative;
 }
 
@@ -29,7 +28,12 @@
     height: calc(100% / 2);
     position: absolute;
     top: calc(100% / 4);
-    right: 1rem;
+    left: 1rem;
+}
+
+.input-icon img {
+    height: 100%;
+    width: 1rem;
 }
 
 .error-message {

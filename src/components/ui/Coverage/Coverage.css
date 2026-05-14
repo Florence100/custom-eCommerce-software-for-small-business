@@ -15,6 +15,10 @@
     transition: background-color 0.2s ease;
 }
 
+.coverage.transparent {
+    opacity: 0;
+}
+
 body:has(.coverage.isVisible) {
     overflow: hidden;
 }
