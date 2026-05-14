@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation, useSearchParams } from 'react-router';
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import { Input } from '@/components/ui';
 import searchIcon from '@/assets/images/icons/search.svg';
 import useDebounce from '@/hooks/useDebounce';
@@ -9,16 +9,30 @@ export function SearchInput (props) {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [searchParams] = useSearchParams();
+    const params = new URLSearchParams(location.search);
 
-    const queryFromUrl = searchParams.get('q') || '';
+    const q = params.get('q') || '';
 
-    const [value, setValue] = useState(queryFromUrl);
-
+    const [value, setValue] = useState(q);
+    
     const debouncedValue = useDebounce(value, 500);
 
-   useEffect(() => {
+    useEffect(() => {
+        setValue(q);
+    }, [q]);
+
+    function onChangeHandler(e) {
+        setValue(e.target.value);
+    }
+
+    useEffect(() => {
         const params = new URLSearchParams(location.search);
+
+        const currentQ = params.get('q') || '';
+
+        if (debouncedValue === currentQ) {
+            return;
+        }
 
         if (debouncedValue.trim()) {
             params.set('q', debouncedValue);
@@ -33,17 +47,13 @@ export function SearchInput (props) {
             },
             { replace: true }
         );
-    }, [
-        debouncedValue,
-        navigate,
-        location.pathname,
-    ]);
+    }, [debouncedValue, location.pathname]);
 
     return (
         <Input 
             {...props}
-            icon={<img src={searchIcon} alt="" style={{ height: '100%', width: '1rem'}} />}
-            onChange={(e) => setValue(e.target.value)}
+            icon={<img src={searchIcon} alt='Icon' />}
+            onChange={onChangeHandler}
             value={value}
             placeholder='Search products...'
             name='search-input'

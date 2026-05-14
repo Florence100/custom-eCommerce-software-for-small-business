@@ -3,12 +3,14 @@ import { validatePassword } from '../../helpers/validate';
 import { Input } from '@/components/ui';
 import closeEyeIcon from '@/assets/images/icons/eye-close.svg';
 import openEyeIcon from '@/assets/images/icons/eye-open.svg';
+import './PasswordInput.css';
 
 export function PasswordInput({ setPassword, isError, setError, isSubmit }) {
-    const [ isShowPassword, setIsShowPassword ] = useState(false);
+    const [ isShowedPassword, setIsShowedPassword ] = useState(false);
 
-    function togglePasswordVisible() {
-        isShowPassword ? setIsShowPassword(false) : setIsShowPassword(true);
+    function togglePasswordVisible(e) {
+        e.preventDefault();
+        isShowedPassword ? setIsShowedPassword(false) : setIsShowedPassword(true);
     }
 
     function onPasswordChange(e) {
@@ -17,20 +19,24 @@ export function PasswordInput({ setPassword, isError, setError, isSubmit }) {
     }
 
     return (
-        <Input 
-            type={ isShowPassword ? 'text' : 'password' }
-            name='password' 
-            placeholder='Enter emilyspass' 
-            icon={
-                <img 
-                    src={ isShowPassword ? openEyeIcon : closeEyeIcon } 
-                    alt="" 
-                    style={{ height: '100%', cursor: 'pointer' }}
+        <div className='password-input'>
+            <Input 
+                type={ isShowedPassword ? 'text' : 'password' }
+                name='password' 
+                placeholder='Enter emilyspass' 
+                onChange={ onPasswordChange }
+                error={ isError && isSubmit ? 'Please enter a password longer than 8 characters' : '' }
+            />
+            <button
+                onClick={togglePasswordVisible}
+                aria-label={isShowedPassword ? 'Hide password' : 'Show password'}
+            >
+                <img
+                    src={ isShowedPassword ? openEyeIcon : closeEyeIcon }
+                    alt="Icon"
                     onClick={togglePasswordVisible}
                 />
-            }
-            onChange={ onPasswordChange }
-            error={ isError && isSubmit ? 'Please enter a password longer than 8 characters' : '' }
-        />
+            </button>
+        </div>
     )
 }

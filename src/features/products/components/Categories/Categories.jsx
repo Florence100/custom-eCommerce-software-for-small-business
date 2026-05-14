@@ -1,10 +1,12 @@
 import { useGetCategoriesQuery } from '../../services/products';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
 import { Loading, Error } from '@/components/ui';
 import './Categories.css';
 
-export function Categories (props) {
+export function Categories(props) {
     const { data, error, isLoading } = useGetCategoriesQuery();
+
+    const location = useLocation();
 
     if (isLoading) return <Loading />;
     if (error) return <Error />;
@@ -12,10 +14,13 @@ export function Categories (props) {
     return (
         <div {...props} >
             <ul className='categories__list'>
-                <li key="all">
+                <li key='all'>
                     <NavLink 
-                        to={ '/catalog' }
-                        className={({ isActive }) => isActive ? "active" : "" }
+                        to={{
+                            pathname: '/catalog',
+                            search: location.search,
+                        }}
+                        className={({ isActive }) => isActive ? 'active' : '' }
                         onClick={ props.onClick }
                         end
                     >
@@ -27,11 +32,14 @@ export function Categories (props) {
                         return (
                             <li key={ cat.slug }>
                                 <NavLink 
-                                    to={ `/catalog/${cat.slug}` }
-                                    className={({ isActive }) => isActive ? "active" : "" }
-                                    onClick={ props.onClick }
+                                    to={{
+                                        pathname: `/catalog/${cat.slug}`,
+                                        search: location.search,
+                                    }}
+                                    className={({ isActive }) => isActive ? 'active' : ''}
+                                    onClick={props.onClick}
                                 >
-                                    { cat.name }
+                                    {cat.name}
                                 </NavLink>
                             </li>
                         )

@@ -1,20 +1,24 @@
 import { Link, useLocation } from 'react-router';
-import { useState } from 'react';
 import './SortControl.css';
-
 
 export function SortControl () {
     const location = useLocation();
-    let currentPath = location.pathname;
 
-    const [orderBy, setOrderBy] = useState('');
-    const [order, setOrder] = useState('');
+    const params = new URLSearchParams(location.search);
 
-    const queryParams = new URLSearchParams(location.search);
-    const searchQuery = queryParams.get('q');
+    const sortBy = params.get('sortBy');
+    const order = params.get('order');
 
-    if (searchQuery) {
-        currentPath += `?q=${searchQuery}`;
+    function createSortLink(sortBy, order) {
+        const params = new URLSearchParams(location.search);
+
+        params.set('sortBy', sortBy);
+        params.set('order', order);
+
+        return {
+            pathname: location.pathname,
+            search: params.toString(),
+        };
     }
 
     return (
@@ -23,13 +27,9 @@ export function SortControl () {
 
             <div className='sort-control__container'>
                 <Link 
-                    to={`${currentPath}${searchQuery ? '&' : '?'}&sortBy=price&order=asc`}
-                    onClick={() => {
-                        setOrderBy('price');
-                        setOrder('asc');
-                    }}
+                    to={createSortLink('price', 'asc')}
                     className={
-                        (orderBy === 'price' && order ==='asc') 
+                        (sortBy === 'price' && order ==='asc') 
                             ? 'link sort-control__link active' 
                             : 'link sort-control__link'
                     }
@@ -37,13 +37,9 @@ export function SortControl () {
                     Lowest Price
                 </Link>
                 <Link 
-                    to={`${currentPath}${searchQuery ? '&' : '?'}&sortBy=price&order=desc`}
-                    onClick={() => {
-                        setOrderBy('price');
-                        setOrder('desc');
-                    }}
+                    to={createSortLink('price', 'desc')}
                     className={
-                        (orderBy === 'price' && order ==='desc') 
+                        (sortBy === 'price' && order ==='desc') 
                             ? 'link sort-control__link active' 
                             : 'link sort-control__link'
                     }
@@ -54,13 +50,9 @@ export function SortControl () {
 
             <div className='sort-control__container'>
                 <Link 
-                    to={`${currentPath}${searchQuery ? '&' : '?'}&sortBy=rating&order=asc`}
-                    onClick={() => {
-                        setOrderBy('rating');
-                        setOrder('asc');
-                    }}
+                    to={createSortLink('rating', 'asc')}
                     className={
-                        (orderBy === 'rating' && order ==='asc') 
+                        (sortBy === 'rating' && order ==='asc') 
                             ? 'link sort-control__link active' 
                             : 'link sort-control__link'
                     }
@@ -68,13 +60,9 @@ export function SortControl () {
                     Lowest Rated
                 </Link>
                 <Link 
-                    to={`${currentPath}${searchQuery ? '&' : '?'}&sortBy=rating&order=desc`}
-                    onClick={() => {
-                        setOrderBy('rating');
-                        setOrder('desc');
-                    }}
+                    to={createSortLink('rating', 'desc')}
                     className={
-                        (orderBy === 'rating' && order ==='desc') 
+                        (sortBy === 'rating' && order ==='desc') 
                             ? 'link sort-control__link active' 
                             : 'link sort-control__link'
                     }

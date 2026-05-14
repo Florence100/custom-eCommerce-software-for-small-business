@@ -1,10 +1,10 @@
 import './Coverage.css';
 
-export function Coverage({ isVisible, onClick, ...props}) {
+export function Coverage({ className, onClick, ...props}) {
     return (
         <div 
             {...props}
-            className={`coverage ${isVisible ? 'isVisible' : ''}`}
+            className={`coverage ${className}`}
             onClick={onClick}
         />
     )

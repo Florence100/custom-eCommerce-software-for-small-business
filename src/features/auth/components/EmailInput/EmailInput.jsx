@@ -1,6 +1,7 @@
 import { Input } from '@/components/ui';
 import { validateEmail } from '../../helpers/validate';
 import emailIcon from '@/assets/images/icons/email.svg';
+import './EmailInput.css';
 
 export function EmailInput({ setEmail, isError, setIsError, isSubmit }) {
     function onChange(e) {
@@ -10,13 +11,13 @@ export function EmailInput({ setEmail, isError, setIsError, isSubmit }) {
 
     return (
         <Input 
-            type='email' 
-            name='email' 
-            placeholder='Email' 
-            icon={<img src={emailIcon} alt="" style={{ height: '100%'}} />} 
-            style={{ paddingLeft: '2.75rem' }}
+            type='email'
+            name='email'
+            placeholder='Email'
+            icon={<img src={emailIcon} alt='email icon' />}
             onChange={ onChange }
             error={ isError && isSubmit ? 'Please enter a correct email' : '' }
+            className='email-input'
         />
     )
 }
