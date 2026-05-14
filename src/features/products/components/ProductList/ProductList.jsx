@@ -1,4 +1,4 @@
-import { useParams, useLocation, useNavigate, useSearchParams } from 'react-router';
+import { useParams, useLocation, useNavigate } from 'react-router';
 import { useGetAllQuery, useGetByCategoryQuery } from '../../services/products';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Loading, Error } from '@/components/ui';
@@ -13,7 +13,7 @@ export function ProductList() {
 
     const search = location.search;
     const queryParams = new URLSearchParams(search);
-    
+
     const searchQuery = queryParams.get('q')?.toLowerCase() || '';
     const sortByQuery = queryParams.get('sortBy') || '';
     const orderQuery = queryParams.get('order') || '';
