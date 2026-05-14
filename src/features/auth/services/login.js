@@ -1,22 +1,27 @@
-export default async function login (formData) {
-    new Promise(resolve => setTimeout(resolve, 500));
+export default async function login(formData) {
+    const response = await fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: formData.name,
+            password: formData.password,
+            expiresInMins: 30,
+        }),
+    });
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.email === formData.email);
+    const data = await response.json();
 
-    if (!user) {
+    if (!response.ok) {
         return {
             success: false,
-            message: "A user with this email doesn't exist."
-        }
+            message: data.message || 'Login failed',
+        };
     }
 
-    if (formData.password !== user.password) {
-        return {
-            success: false,
-            message: "The password is incorrect"
-        }
-    }
-
-    return { success: true };
+    return {
+        success: true,
+        user: data,
+    };
 }
