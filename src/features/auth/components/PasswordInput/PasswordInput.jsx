@@ -20,7 +20,7 @@ export function PasswordInput({ setPassword, isError, setError, isSubmit }) {
         <Input 
             type={ isShowPassword ? 'text' : 'password' }
             name='password' 
-            placeholder='Password' 
+            placeholder='Enter emilyspass' 
             icon={
                 <img 
                     src={ isShowPassword ? openEyeIcon : closeEyeIcon } 
@@ -28,8 +28,7 @@ export function PasswordInput({ setPassword, isError, setError, isSubmit }) {
                     style={{ height: '100%', cursor: 'pointer' }}
                     onClick={togglePasswordVisible}
                 />
-            } 
-            style={{ paddingLeft: '2.75rem' }}
+            }
             onChange={ onPasswordChange }
             error={ isError && isSubmit ? 'Please enter a password longer than 8 characters' : '' }
         />
