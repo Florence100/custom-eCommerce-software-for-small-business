@@ -26,7 +26,7 @@ export function ProductFull ({ productId }) {
                     </label>
 
                     <div className='product-full__block'>
-                        <h4 className='product-full__brand'>{data.brand}</h4>
+                        <div className='product-full__brand'>{data.brand}</div>
                         <p className='product-full__desc'>{data.description}</p>
                         <div className='product-full__rating'>★ {data.rating}</div>
                         <div className='product-full__price'>${data.price}</div>

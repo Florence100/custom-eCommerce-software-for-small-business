@@ -18,7 +18,7 @@ export function ImageGallery({ images }) {
             <div className='image-gallery__main'>
                 <img
                     src={images[currentIndex]}
-                    alt=''
+                    alt='photo'
                     className='image-gallery__image'
                 />
 
@@ -49,10 +49,11 @@ export function ImageGallery({ images }) {
                                 ? 'image-gallery__thumbnail--active'
                                 : ''
                         }`}
+                        aria-label='chose image'
                     >
                         <img
                             src={image}
-                            alt=''
+                            alt='photo'
                             className='image-gallery__thumbnail-image'
                         />
                     </button>

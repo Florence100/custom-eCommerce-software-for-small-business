@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { Button } from '@/components/ui';
-import { Form } from '@/components/ui';
-import { validateEmail, validatePassword } from '../../helpers/validate';
-import { EmailInput } from '../EmailInput/EmailInput';
+import { Form, Input, Button } from '@/components/ui';
+import { validatePassword, validateName } from '../../helpers/validate';
 import { PasswordInput } from '../PasswordInput/PasswordInput';
 import login from '@/features/auth/services/login';
 import { login as loginDispatch } from '../../store/authSlice';
@@ -15,19 +13,24 @@ export function LoginForm () {
 
     const [ isPending, setIsPending ] = useState(false);
 
-    const [ email, setEmail ] = useState('');
-    const [ isEmailError, setIsEmailError ] = useState(true);
+    const [ name, setName ] = useState('');
+    const [ isNameError, setIsNameError ] = useState(true);
 
     const [ password, setPassword ] = useState('');
     const [ isPasswordError, setIsPasswordError ] = useState(true);
 
     const [ isSubmit, setIsSubmit ] = useState(false);
 
+    function onNameChange(e) {
+        setName(e.target.value);
+        setIsNameError(!validateName(e.target.value));
+    }
+
     function formValidate() {
-        const isEmailValid = validateEmail(email);
+        const isNameValid = validateName(name);
         const isPasswordValid = validatePassword(password);
 
-        return isEmailValid && isPasswordValid ? true : false;
+        return isNameValid && isPasswordValid ? true : false;
     }
 
     async function onSubmitHandler(e) {
@@ -38,10 +41,10 @@ export function LoginForm () {
         setIsPending(true);
 
         try {
-            const result = await login({ email, password });
+            const result = await login({ name, password });
             
             if (result.success) {
-                dispatch(loginDispatch({ email: email }));
+                dispatch(loginDispatch(result.user));
                 navigate('/catalog');
             } else {
                 alert(result.message);
@@ -55,11 +58,13 @@ export function LoginForm () {
 
     return (
         <Form onSubmit={onSubmitHandler} title='Log in'>
-            <EmailInput
-                isError={isEmailError} 
-                setIsError={setIsEmailError}
-                setEmail={setEmail}
-                isSubmit={isSubmit}
+            <Input 
+                type='text'
+                name='username'
+                placeholder='Enter emilys'
+                autoFocus
+                onChange={onNameChange}
+                error={ isNameError && isSubmit ? 'Please enter the name' : '' }
             />
             <PasswordInput 
                 isError={isPasswordError}
